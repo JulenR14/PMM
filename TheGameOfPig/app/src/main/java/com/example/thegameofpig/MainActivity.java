@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     int puntosJugador1 = 0, puntosJugador2 = 0;
     int currentJugador1 = 0, currentJugador2 = 0;
     boolean cambioPersona = true;
-    TextView current1, current2, textoPuntuacion1, textoPuntuacion2;
+    TextView current1, current2, textoPuntuacion1, textoPuntuacion2, jugadorGanador;
     Button rollDice, hold, resetGame;
 
     View vJugador1, vJugador2;
@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         current2 = findViewById(R.id.current2);
         textoPuntuacion1 = findViewById(R.id.textoPuntuacion1);
         textoPuntuacion2 = findViewById(R.id.textoPuntuacion2);
+        jugadorGanador = findViewById(R.id.ganador);
 
         hold.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +103,9 @@ public class MainActivity extends AppCompatActivity {
                     current2.setText("CURRENT\n" + currentJugador2);
                     cambioPersona = true;
                 }
+
+                jugadorGanador.setText(compararGanador());
+
             }
         });
     }
@@ -109,12 +113,26 @@ public class MainActivity extends AppCompatActivity {
     public String compararGanador(){
 
         String ganador = "";
+        boolean reiniciar = false;
 
         if (puntosJugador1 >= 100) {
-            ganador = "Jugador 1";
+            ganador = "GANADOR Jugador 1";
+            reiniciar = true;
         }else if (puntosJugador2 >= 100){
-                ganador = "Jugador 2";
+                ganador = " ¡GANADOR Jugador 2";
+                reiniciar = true;
                 }
+
+        if (reiniciar){
+            current1.setText("CURRENT\n0");
+            current2.setText("CURRENT\n0");
+            textoPuntuacion1.setText("0");
+            textoPuntuacion2.setText("0");
+            puntosJugador1 = 0;
+            puntosJugador2 = 0;
+            currentJugador1 = 0;
+            currentJugador2 = 0;
+        }
         return ganador;
     }
 
