@@ -7,6 +7,30 @@
     tools:context=".MainActivity">
 
 
+    <View
+        android:id="@+id/viewJugador1"
+        android:layout_width="206dp"
+        android:layout_height="801dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viewJugador2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571" />
+
+    <View
+        android:id="@+id/viewJugador2"
+        android:layout_width="204dp"
+        android:layout_height="798dp"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6" />
+
     <Button
         android:id="@+id/rollDice"
         android:layout_width="97dp"
@@ -51,8 +75,8 @@
 
     <TextView
         android:id="@+id/current1"
-        android:layout_width="72dp"
-        android:layout_height="55dp"
+        android:layout_width="83dp"
+        android:layout_height="58dp"
         android:background="@color/pink"
         android:gravity="center"
         android:text="CURRENT\n0"
@@ -95,7 +119,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
         android:text="0"
-        android:textSize="40dp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/current2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textPlayer1" />
@@ -124,5 +148,18 @@
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toEndOf="@+id/textPlayer1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.138" />
+        app:layout_constraintVertical_bias="0.099" />
+
+    <TextView
+        android:id="@+id/ganador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/rollDice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resetGame"
+        app:layout_constraintVertical_bias="0.139" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     boolean cambioPersona = true;
     TextView current1, current2, textoPuntuacion1, textoPuntuacion2;
     Button rollDice, hold, resetGame;
+
+    View vJugador1, vJugador2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +36,17 @@ public class MainActivity extends AppCompatActivity {
 
         current1 = findViewById(R.id.current1);
         current2 = findViewById(R.id.current2);
+        vJugador1 = findViewById(R.id.viewJugador1);
+        vJugador2 = findViewById(R.id.viewJugador2);
+
         roll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int numeroAleatorio = numeroAleatorio();
 
                 if (cambioPersona){
+                    vJugador1.setBackgroundColor(getResources().getColor(R.color.grey, getTheme()));
+                    vJugador2.setBackgroundColor(getResources().getColor(R.color.white, getTheme()));
                     if (numeroAleatorio != 1){
                         currentJugador1 += numeroAleatorio;
                         current1.setText("CURRENT\n" + currentJugador1);
@@ -49,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
                         cambioPersona = false;
                     }
                 }else {
+                    vJugador1.setBackgroundColor(getResources().getColor(R.color.white, getTheme()));
+                    vJugador2.setBackgroundColor(getResources().getColor(R.color.grey, getTheme()));
                     if (numeroAleatorio != 1){
                         currentJugador2 += numeroAleatorio;
                         current2.setText("CURRENT\n" + currentJugador2);
@@ -77,22 +86,36 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if (cambioPersona) {
+                    vJugador1.setBackgroundColor(getResources().getColor(R.color.white, getTheme()));
+                    vJugador2.setBackgroundColor(getResources().getColor(R.color.grey, getTheme()));
                     puntosJugador1 += currentJugador1;
                     currentJugador1 = 0;
                     textoPuntuacion1.setText(String.valueOf(puntosJugador1));
                     current1.setText("CURRENT\n" + currentJugador1);
                     cambioPersona = false;
                 }else{
+                    vJugador1.setBackgroundColor(getResources().getColor(R.color.grey, getTheme()));
+                    vJugador2.setBackgroundColor(getResources().getColor(R.color.white, getTheme()));
                     puntosJugador2 += currentJugador2;
                     currentJugador2 = 0;
                     textoPuntuacion2.setText(String.valueOf(puntosJugador2));
                     current2.setText("CURRENT\n" + currentJugador2);
                     cambioPersona = true;
                 }
-
             }
         });
+    }
 
+    public String compararGanador(){
+
+        String ganador = "";
+
+        if (puntosJugador1 >= 100) {
+            ganador = "Jugador 1";
+        }else if (puntosJugador2 >= 100){
+                ganador = "Jugador 2";
+                }
+        return ganador;
     }
 
     public void resetearJuego(Button newGame){
