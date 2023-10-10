@@ -21,8 +21,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        System.out.println("Fallo 1");
-
         btn0 = findViewById(R.id.button0);
         btn1 = findViewById(R.id.button1);
         btn2 = findViewById(R.id.button2);
@@ -49,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ejecutarBoton(Button b){
-        System.out.println("Fallo 1");
+        System.out.println("Fallo 2");
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,9 +59,11 @@ public class MainActivity extends AppCompatActivity {
     public void anidarOperacion(String valor){
         System.out.println("FALLO 3");
         if(!valor.equals("+")){
-            if (!(this.operacion.get(this.operacion.size()-1) == "+" || this.operacion.size() == 0)){
-                this.operacion.add(valor);
-                muestraOperacion += valor;
+            if(!this.operacion.isEmpty()){
+                if(!(this.operacion.get(this.operacion.size()-1) == "+")){
+                    this.operacion.add(valor);
+                    muestraOperacion += valor;
+                }
             }
         }
 
