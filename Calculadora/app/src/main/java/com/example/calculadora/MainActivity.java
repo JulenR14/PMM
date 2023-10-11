@@ -99,7 +99,8 @@ public class MainActivity extends AppCompatActivity {
         c.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //limpiamos el array, quitamos el valor de
+                //limpiamos el array, quitamos el valor de el String en la que tenemos la operacion
+                //cambiamos el texto del textView al valor de nuestraOperacion actual
                 operacion.clear();
                 muestraOperacion = "";
                 textoOperacion.setText(muestraOperacion);
@@ -115,12 +116,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //variable en la que iremos sumando lo valores
                 totalSuma = Arrays.stream(muestraOperacion.split("\\+")).mapToInt(n -> Integer.parseInt(n)).sum();
-
+                //cambiamos el valor de nuestra operacion al resultado de la suma
                 muestraOperacion = String.valueOf(totalSuma);
+                //modficamos el textView con el resultado de la operacion
                 textoOperacion.setText(muestraOperacion);
+                //limpiamos la operacion anterior, porque ya no la necesitamos
                 operacion.clear();
+                //y añadimos en la primera posicion del array el valor del resultado
+                //por si quiere seguir operando con el resultado
                 operacion.add(muestraOperacion);
+                //damos valor 0 al total para poder seguir operando
                 totalSuma = 0;
             }
         });
