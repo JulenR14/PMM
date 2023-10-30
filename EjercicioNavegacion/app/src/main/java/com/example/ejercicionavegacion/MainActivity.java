@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         binding.actionGotoBottomActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, BottomActivity.class));
+                startActivity(new Intent(MainActivity.this, BottonActivity.class));
             }
         });
 
