@@ -11,6 +11,8 @@ import androidx.lifecycle.Transformations;
 
 import java.util.function.Function;
 
+import kotlin.jvm.functions.Function1;
+
 public class EntrenadorViewModel extends AndroidViewModel {
 
     Entrenador entrenador;
@@ -23,13 +25,13 @@ public class EntrenadorViewModel extends AndroidViewModel {
 
         entrenador = new Entrenador();
 
-        ejercicioLiveData = (LiveData<Integer>)  Transformations.switchMap(entrenador.ordenLiveData, new Function<String, LiveData<Integer>>(){
+        ejercicioLiveData = Transformations.switchMap(entrenador.ordenLiveData, new Function1<String, LiveData<Integer>>(){
 
             String ejercicioAnterior;
 
             @Override
-            public LiveData<Integer> apply(String order) {
-                String ejercicio = order.split(":")[0];
+            public LiveData<Integer> invoke(String orden) {
+                String ejercicio = orden.split(":")[0];
 
                 if (!ejercicio.equals(ejercicioAnterior)) {
                     ejercicioAnterior = ejercicio;
@@ -53,13 +55,15 @@ public class EntrenadorViewModel extends AndroidViewModel {
                 }
                 return null;
             }
+
         });
 
-        repeticionLiveData = (LiveData<String>) Transformations.switchMap(entrenador.ordenLiveData, new Function<String, LiveData<String>>() {
+        repeticionLiveData = Transformations.switchMap(entrenador.ordenLiveData, new Function1<String, LiveData<String>>() {
             @Override
-            public LiveData<String> apply(String orden) {
+            public LiveData<String> invoke(String orden) {
                 return new MutableLiveData<>(orden.split(":")[1]);
             }
+
         });
     }
 
