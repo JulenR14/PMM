@@ -7,19 +7,15 @@
 
     <fragment
         android:id="@+id/onboarding1Fragment"
-        android:name="com.example.pmm_fragments.Onboarding1Fragment"
         android:label="fragment_onboarding1"
         tools:layout="@layout/fragment_onboarding1" >
         <action
             android:id="@+id/action_onboarding1Fragment_to_onboarding2Fragment"
             app:destination="@id/onboarding2Fragment" />
-        <action
-            android:id="@+id/action_onboarding1Fragment_to_onboarding2Fragment2"
-            app:destination="@id/onboarding2Fragment" />
+
     </fragment>
     <fragment
         android:id="@+id/onboarding2Fragment"
-        android:name="com.example.pmm_fragments.Onboarding2Fragment"
         android:label="fragment_onboarding2"
         tools:layout="@layout/fragment_onboarding2" >
         <action
@@ -28,7 +24,6 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.pmm_fragments.homeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 </navigation>
