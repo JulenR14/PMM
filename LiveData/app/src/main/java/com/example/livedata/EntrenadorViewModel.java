@@ -58,13 +58,7 @@ public class EntrenadorViewModel extends AndroidViewModel {
 
         });
 
-        repeticionLiveData = Transformations.switchMap(entrenador.ordenLiveData, new Function1<String, LiveData<String>>() {
-            @Override
-            public LiveData<String> invoke(String orden) {
-                return new MutableLiveData<>(orden.split(":")[1]);
-            }
-
-        });
+        repeticionLiveData = Transformations.switchMap(entrenador.ordenLiveData, orden -> new MutableLiveData<>(orden.split(":")[1]));
     }
 
     LiveData<Integer> obtenerEjercicio(){

@@ -15,6 +15,27 @@ public class Entrenador {
         void cuandoDeLaOrden(String orden);
     }
 
+    LiveData<String> ordenLiveData = new LiveData<String>() {
+        @Override
+        protected void onActive() {
+            super.onActive();
+
+            iniciarEntrenamiento(new EntrenadorListener() {
+                @Override
+                public void cuandoDeLaOrden(String orden) {
+                    postValue(orden);
+                }
+            });
+        }
+
+        @Override
+        protected void onInactive() {
+            super.onInactive();
+
+            pararEntrenamiento();
+        }
+    };
+
     Random random = new Random();
     //ScheduledExecutorService nos va a permitir ejecutar una tarea en segundo plano para cada ejercicio por un tiempo predefinido
     ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
@@ -45,26 +66,5 @@ public class Entrenador {
             entrenando.cancel(true);
         }
     }
-
-    LiveData<String> ordenLiveData = new LiveData<String>() {
-        @Override
-        protected void onActive() {
-            super.onActive();
-
-            iniciarEntrenamiento(new EntrenadorListener() {
-                @Override
-                public void cuandoDeLaOrden(String orden) {
-                    postValue(orden);
-                }
-            });
-        }
-
-        @Override
-        protected void onInactive() {
-            super.onInactive();
-
-            pararEntrenamiento();
-        }
-    };
 
 }
