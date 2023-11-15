@@ -9,15 +9,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.ejercicionavegacion.databinding.ActivityBottonBinding;
 import com.example.ejercicionavegacion.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-    ActivityBottonBinding binding;
+    ActivityMainBinding binding;
+    NavController navController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView((binding = ActivityBottonBinding.inflate(getLayoutInflater())).getRoot());
+        setContentView((binding = ActivityMainBinding.inflate(getLayoutInflater())).getRoot());
 
         setSupportActionBar(binding.toolbar);
 
