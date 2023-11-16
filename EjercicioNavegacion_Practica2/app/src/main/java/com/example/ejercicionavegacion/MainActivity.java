@@ -3,6 +3,7 @@ package com.example.ejercicionavegacion;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
@@ -21,8 +22,15 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
 
-        NavController navController = ((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment)).getNavController();
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.tabFragment, R.id.drawer2Fragment)
+                .setOpenableLayout(binding.drawerLayout)
+                .build();
+        navController = ((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView)).getNavController();
+        //Estableciendo la navegación en el Bottom Navigation View
         NavigationUI.setupWithNavController(binding.bottomNavView, navController);
-        NavigationUI.setupWithNavController(binding.toolbar, navController);
+        //Estableciendo la navegación en el Navigation View
+        NavigationUI.setupWithNavController(binding.navView, navController);
+        //Estableciendo la navegación en el toolbar
+        NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration);
     }
 }
