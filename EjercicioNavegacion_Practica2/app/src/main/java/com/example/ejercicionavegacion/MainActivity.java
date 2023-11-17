@@ -1,5 +1,6 @@
 package com.example.ejercicionavegacion;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -8,6 +9,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.example.ejercicionavegacion.databinding.ActivityMainBinding;
@@ -22,15 +25,29 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
 
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.tabFragment, R.id.drawer2Fragment)
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.tabbed1Fragment, R.id.drawer2Fragment)
                 .setOpenableLayout(binding.drawerLayout)
                 .build();
         navController = ((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView)).getNavController();
-        //Estableciendo la navegación en el Bottom Navigation View
+
+
         NavigationUI.setupWithNavController(binding.bottomNavView, navController);
-        //Estableciendo la navegación en el Navigation View
+
+
         NavigationUI.setupWithNavController(binding.navView, navController);
-        //Estableciendo la navegación en el toolbar
+
+
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.options_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        return NavigationUI.onNavDestinationSelected(item, navController) || super.onOptionsItemSelected(item);
     }
 }
