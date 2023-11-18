@@ -4,16 +4,52 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/textViewCalculo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calculo :"
+        android:textSize="25dp" />
+
     <EditText
         android:id="@+id/capital"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Capital"/>
+        android:hint="Capital" />
+
     <EditText
         android:id="@+id/plazo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Plazo"/>
+        android:hint="Plazo"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/textViewDatosUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Datos :"
+        android:textSize="25dp" />
+
+    <EditText
+        android:id="@+id/nombreUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"/>
+
+    <EditText
+        android:id="@+id/apellidoUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Apellido"/>
+
+    <EditText
+        android:id="@+id/edadUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Edad"
+        android:layout_marginBottom="20dp"/>
+
     <Button
         android:id="@+id/calcular"
         android:layout_width="match_parent"

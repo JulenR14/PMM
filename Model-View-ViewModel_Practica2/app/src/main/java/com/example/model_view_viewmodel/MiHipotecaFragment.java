@@ -42,8 +42,11 @@ public class MiHipotecaFragment extends Fragment {
 
                 double capital = Double.parseDouble(binding.capital.getText().toString());
                 int plazo = Integer.parseInt(binding.plazo.getText().toString());
+                String nombre = binding.nombreUsuario.getText().toString();
+                String apellido = binding.nombreUsuario.getText().toString();
+                int edad = Integer.parseInt(binding.edadUsuario.getText().toString());
 
-                miHipotecaViewModel.calcular(capital, plazo);
+                miHipotecaViewModel.calcular(capital, plazo, edad);
             }
         });
 

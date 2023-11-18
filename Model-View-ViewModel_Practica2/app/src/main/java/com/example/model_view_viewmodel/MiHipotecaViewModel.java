@@ -14,6 +14,7 @@ public class MiHipotecaViewModel extends AndroidViewModel {
     MutableLiveData<Double> cuota = new MutableLiveData<>();
     MutableLiveData<Double> errorCapital = new MutableLiveData<>();
     MutableLiveData<Integer> errorPlazos = new MutableLiveData<>();
+    MutableLiveData<Integer> errorEdad = new MutableLiveData<>();
     MutableLiveData<Boolean> calculando = new MutableLiveData<>();
 
     SimuladorHipoteca simulador;
@@ -28,9 +29,9 @@ public class MiHipotecaViewModel extends AndroidViewModel {
         simulador = new SimuladorHipoteca();
     }
 
-    public void calcular(double capital, int plazo) {
+    public void calcular(double capital, int plazo, int edad) {
 
-        final SimuladorHipoteca.Solicitud solicitud = new SimuladorHipoteca.Solicitud(capital, plazo);
+        final SimuladorHipoteca.Solicitud solicitud = new SimuladorHipoteca.Solicitud(capital, plazo, edad);
 
         executor.execute(new Runnable() {
             @Override
@@ -50,6 +51,11 @@ public class MiHipotecaViewModel extends AndroidViewModel {
                     @Override
                     public void cuandoHayaErrorDePlazoInferiorAlMinimo(int plazoMinimo) {
                         errorPlazos.postValue(plazoMinimo);
+                    }
+
+                    @Override
+                    public void cuandoHayaErrorDeEdadInferiorAlMinimo(int edad) {
+                        errorEdad.postValue(edad);
                     }
 
                     @Override
