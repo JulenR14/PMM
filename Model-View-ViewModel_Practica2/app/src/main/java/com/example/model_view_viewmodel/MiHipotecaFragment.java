@@ -22,7 +22,9 @@ import com.example.model_view_viewmodel.databinding.FragmentMiHipotecaBinding;
  */
 public class MiHipotecaFragment extends Fragment {
 
+    //atributos
     private FragmentMiHipotecaBinding binding;
+    private boolean mostrarInfo = true;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,20 +38,23 @@ public class MiHipotecaFragment extends Fragment {
 
         final MiHipotecaViewModel miHipotecaViewModel = new ViewModelProvider(this).get(MiHipotecaViewModel.class);
 
+        //manejamos el evento cuando clicken a Calcular
         binding.calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //recogemos los datos
                 double capital = Double.parseDouble(binding.capital.getText().toString());
                 int plazo = Integer.parseInt(binding.plazo.getText().toString());
                 String nombre = binding.nombreUsuario.getText().toString();
-                String apellido = binding.nombreUsuario.getText().toString();
+                String apellido = binding.apellidoUsuario.getText().toString();
                 int edad = Integer.parseInt(binding.edadUsuario.getText().toString());
 
+                //llamamos al metodo calcular del viewmodel
                 miHipotecaViewModel.calcular(capital, plazo, edad, nombre, apellido);
             }
         });
 
+        //observamos los cambios en el viewmodel
         miHipotecaViewModel.cuota.observe(getViewLifecycleOwner(), new Observer<Double>() {
             @Override
             public void onChanged(Double cuota) {
@@ -57,13 +62,26 @@ public class MiHipotecaFragment extends Fragment {
             }
         });
 
+        //observamos los cambios en el viewmodel
+        miHipotecaViewModel.datosUsuario.observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(String informacion) {
+                binding.datosUsuario.setText(informacion);
+            }
+        });
+
         miHipotecaViewModel.errorCapital.observe(getViewLifecycleOwner(), new Observer<Double>() {
             @Override
             public void onChanged(Double capitalMinimo) {
+                //si el capital es inferior al minimo, mostramos el error
                 if (capitalMinimo != null) {
                     binding.capital.setError("El capital no puede ser inferor a " + capitalMinimo + " euros");
+                    binding.cuota.setVisibility(View.GONE);
+                    binding.datosUsuario.setVisibility(View.GONE);
+                    mostrarInfo = false;
                 } else {
                     binding.capital.setError(null);
+                    mostrarInfo = true;
                 }
             }
         });
@@ -71,10 +89,15 @@ public class MiHipotecaFragment extends Fragment {
         miHipotecaViewModel.errorPlazos.observe(getViewLifecycleOwner(), new Observer<Integer>() {
             @Override
             public void onChanged(Integer plazoMinimo) {
+                //si el plazo es inferior al minimo, mostramos el error
                 if (plazoMinimo != null) {
                     binding.plazo.setError("El plazo no puede ser inferior a " + plazoMinimo + " años");
+                    binding.cuota.setVisibility(View.GONE);
+                    binding.datosUsuario.setVisibility(View.GONE);
+                    mostrarInfo = false;
                 } else {
                     binding.plazo.setError(null);
+                    mostrarInfo = true;
                 }
             }
         });
@@ -82,10 +105,15 @@ public class MiHipotecaFragment extends Fragment {
         miHipotecaViewModel.errorEdad.observe(getViewLifecycleOwner(), new Observer<Integer>() {
             @Override
             public void onChanged(Integer edadMinima) {
+                //si la edad es inferior al minimo, mostramos el error
                 if (edadMinima != null){
                     binding.edadUsuario.setError("La edad no puede ser inferior a " + edadMinima + " años");
+                    binding.cuota.setVisibility(View.GONE);
+                    binding.datosUsuario.setVisibility(View.GONE);
+                    mostrarInfo = false;
                 }else{
                     binding.edadUsuario.setError(null);
+                    mostrarInfo = true;
                 }
             }
         });
@@ -94,11 +122,16 @@ public class MiHipotecaFragment extends Fragment {
             @Override
             public void onChanged(Boolean calculando) {
                 if (calculando) {
+                    //si esta calculando, mostramos el mensaje
                     binding.calculando.setVisibility(View.VISIBLE);
                     binding.cuota.setVisibility(View.GONE);
+                    binding.datosUsuario.setVisibility(View.GONE);
                 } else {
                     binding.calculando.setVisibility(View.GONE);
-                    binding.cuota.setVisibility(View.VISIBLE);
+                    if (mostrarInfo){
+                        binding.cuota.setVisibility(View.VISIBLE);
+                        binding.datosUsuario.setVisibility(View.VISIBLE);
+                    }
                 }
             }
         });

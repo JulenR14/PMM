@@ -42,6 +42,10 @@ public class MiHipotecaViewModel extends AndroidViewModel {
                     public void cuandoEsteCalculadaLaCuota(double cuotaResultante, String nombre, String apellido, int edad) {
                         errorCapital.postValue(null);
                         errorPlazos.postValue(null);
+                        datosUsuario.postValue("Nombre : "+ nombre + "\n" +
+                                                "Apellido : " + apellido + "\n" +
+                                                "Edad : " + edad + "\n" +
+                                                "Cantidad : \n");
                         cuota.postValue(cuotaResultante);
                     }
                     @Override
