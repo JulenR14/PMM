@@ -6,16 +6,20 @@ public class SimuladorHipoteca {
         public double capital;
         public int plazo;
         public int edad;
+        private String nombre;
+        private String apellido;
 
-        public Solicitud(double capital, int plazo, int edad) {
+        public Solicitud(double capital, int plazo, int edad, String nombre, String apellido) {
             this.capital = capital;
             this.plazo = plazo;
             this.edad = edad;
+            this.nombre = nombre;
+            this.apellido = apellido;
         }
     }
 
     interface Callback {
-        void cuandoEsteCalculadaLaCuota(double cuota);
+        void cuandoEsteCalculadaLaCuota(double cuota, String nombre, String apellido, int edad);
         void cuandoHayaErrorDeCapitalInferiorAlMinimo(double capitalMinimo);
         void cuandoHayaErrorDePlazoInferiorAlMinimo(int plazoMinimo);
         void cuandoHayaErrorDeEdadInferiorAlMinimo(int edad);
@@ -57,7 +61,7 @@ public class SimuladorHipoteca {
         }
 
         if(!error) {
-            callback.cuandoEsteCalculadaLaCuota(solicitud.capital * interes / 12 / (1 - Math.pow(1 + (interes / 12), -solicitud.plazo * 12)));
+            callback.cuandoEsteCalculadaLaCuota(solicitud.capital * interes / 12 / (1 - Math.pow(1 + (interes / 12), -solicitud.plazo * 12)), solicitud.nombre, solicitud.apellido, solicitud.edad);
         }
 
         callback.cuandoFinaliceElCalculo();

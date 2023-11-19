@@ -46,7 +46,7 @@ public class MiHipotecaFragment extends Fragment {
                 String apellido = binding.nombreUsuario.getText().toString();
                 int edad = Integer.parseInt(binding.edadUsuario.getText().toString());
 
-                miHipotecaViewModel.calcular(capital, plazo, edad);
+                miHipotecaViewModel.calcular(capital, plazo, edad, nombre, apellido);
             }
         });
 
@@ -75,6 +75,17 @@ public class MiHipotecaFragment extends Fragment {
                     binding.plazo.setError("El plazo no puede ser inferior a " + plazoMinimo + " años");
                 } else {
                     binding.plazo.setError(null);
+                }
+            }
+        });
+
+        miHipotecaViewModel.errorEdad.observe(getViewLifecycleOwner(), new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer edadMinima) {
+                if (edadMinima != null){
+                    binding.edadUsuario.setError("La edad no puede ser inferior a " + edadMinima + " años");
+                }else{
+                    binding.edadUsuario.setError(null);
                 }
             }
         });
