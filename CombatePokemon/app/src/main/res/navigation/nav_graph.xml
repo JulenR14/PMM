@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.combatepokemon.Home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/agregarPokemon"
+        android:name="com.example.combatepokemon.AgregarPokemon"
+        android:label="fragment_agregar_pokemon"
+        tools:layout="@layout/fragment_agregar_pokemon" />
+    <fragment
+        android:id="@+id/combatePokemon"
+        android:name="com.example.combatepokemon.CombatePokemon"
+        android:label="fragment_combate_pokemon"
+        tools:layout="@layout/fragment_combate_pokemon" />
+</navigation>
