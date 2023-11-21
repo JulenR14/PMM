@@ -7,6 +7,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.example.combatepokemon.databinding.FragmentAgregarPokemonBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,50 +18,51 @@ import android.view.ViewGroup;
  */
 public class AgregarPokemon extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public AgregarPokemon() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment agregarPokemon.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AgregarPokemon newInstance(String param1, String param2) {
-        AgregarPokemon fragment = new AgregarPokemon();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    private FragmentAgregarPokemonBinding binding;
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_agregar_pokemon, container, false);
+        return (binding = FragmentAgregarPokemonBinding.inflate(inflater, container, false)).getRoot();
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        //boton para agregar pokemon en el fragmento agregar pokemon
+        binding.agregarPokemon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //creamos el pokemon con los datos introducidos
+                Pokemon pokemon = new Pokemon(
+                        binding.nombre.getText().toString(),
+                        Integer.parseInt(binding.hp.getText().toString()),
+                        Integer.parseInt(binding.ataque.getText().toString()),
+                        Integer.parseInt(binding.defensa.getText().toString()),
+                        Integer.parseInt(binding.ataqueEspecial.getText().toString()),
+                        Integer.parseInt(binding.defensaEspecial.getText().toString())
+                );
+                //llamamos a un metodo que nos limpiara los campos
+                limpiarParametros();
+
+                //cuando llamamos al metodo agregarPokemon de la clase Combatir, nos devuelve un mensaje
+                //este mensaje nos da informacion sobre la creacion del nuevo pokemon
+                String mensaje =  Combatir.instance.agregarPokemon(pokemon);
+
+                //mostramos un mensaje mostrando que pokemon se ha creado, o si no se ha podido crear
+                Toast.makeText(getContext(), mensaje, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    //limpiamos los parametros
+    public void limpiarParametros(){
+        binding.nombre.setText("");
+        binding.hp.setText("");
+        binding.ataque.setText("");
+        binding.defensa.setText("");
+        binding.ataqueEspecial.setText("");
+        binding.defensaEspecial.setText("");
     }
 }
