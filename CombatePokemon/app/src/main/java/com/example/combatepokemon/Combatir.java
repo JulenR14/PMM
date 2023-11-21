@@ -13,7 +13,7 @@ public class Combatir{
 
     public Pokemon pokemon1;
     public Pokemon pokemon2;
-    
+
     public String agregarPokemon(Pokemon pokemon){
         String mensaje = "El pokemon no se ha podido crear.";
         try {
