@@ -31,11 +31,13 @@ public class CombatePokemonFragment extends Fragment {
 
         final PokemonViewModel pokemonViewModel = new ViewModelProvider(this).get(PokemonViewModel.class);
 
-        binding.mostarInfo.setOnClickListener(new View.OnClickListener() {
+        binding.primerPokemon.setText(pokemonViewModel.pokemon1.getValue().toString());
+        binding.segundoPokemon.setText(pokemonViewModel.pokemon2.getValue().toString());
+
+        binding.combatir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                binding.primerPokemon.setText(pokemonViewModel.pokemon1.toString());
-                binding.segundoPokemon.setText(pokemonViewModel.pokemon2.toString());
+
             }
         });
 

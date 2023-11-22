@@ -43,15 +43,53 @@ public class AgregarPokemonFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                //creamos el pokemon con los datos introducidos
-                pokemonViewModel.agregarPokemon(binding.nombre.getText().toString(),
-                        Integer.parseInt(binding.hp.getText().toString()),
-                        Integer.parseInt(binding.ataque.getText().toString()),
-                        Integer.parseInt(binding.defensa.getText().toString()),
-                        Integer.parseInt(binding.ataqueEspecial.getText().toString()),
-                        Integer.parseInt(binding.defensaEspecial.getText().toString()));
+                boolean error = false;
 
-                limpiarParametros();
+                if(binding.nombre.getText().toString().equals("")){
+                    error = true;
+                    binding.nombre.setError("El nombre no puede estar vacio");
+                }
+                try {
+                    Integer.parseInt(binding.hp.getText().toString());
+                }catch (Exception e){
+                    error = true;
+                    binding.hp.setError("La vida debe ser un numero");
+                }
+                try{
+                    Integer.parseInt(binding.ataque.getText().toString());
+                }catch (Exception e){
+                    error = true;
+                    binding.ataque.setError("El ataque debe ser un numero");
+                }
+                try {
+                    Integer.parseInt(binding.defensa.getText().toString());
+                }catch (Exception e){
+                    error = true;
+                    binding.defensa.setError("La defensa debe ser un numero");
+                }
+                try{
+                    Integer.parseInt(binding.ataqueEspecial.getText().toString());
+                }catch (Exception e){
+                    error = true;
+                    binding.ataqueEspecial.setError("El ataque especial debe ser un numero");
+                }
+                try {
+                    Integer.parseInt(binding.defensaEspecial.getText().toString());
+                }catch (Exception e){
+                    error = true;
+                    binding.defensaEspecial.setError("La defensa especial debe ser un numero");
+                }
+
+                if (!error){
+                    pokemonViewModel.agregarPokemon(binding.nombre.getText().toString(),
+                            Integer.parseInt(binding.hp.getText().toString()),
+                            Integer.parseInt(binding.ataque.getText().toString()),
+                            Integer.parseInt(binding.defensa.getText().toString()),
+                            Integer.parseInt(binding.ataqueEspecial.getText().toString()),
+                            Integer.parseInt(binding.defensaEspecial.getText().toString()));
+
+                    limpiarParametros();
+                }
             }
         });
 

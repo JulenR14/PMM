@@ -18,11 +18,11 @@ public class PokemonModel {
 
         callback.cuandoEmpiezaCrearPokemon();
 
-        int hpMinima = 0;
-        int ataqueMinimo = 0;
-        int defensaMinima = 0;
-        int ataqueEspecialMinimo = 0;
-        int defensaEspecialMinima = 0;
+        int hpMinima = 1;
+        int ataqueMinimo = 1;
+        int defensaMinima = 1;
+        int ataqueEspecialMinimo = 1;
+        int defensaEspecialMinima = 1;
 
         int hpMaxima = 999;
         int ataqueMaximo = 999;
@@ -43,7 +43,11 @@ public class PokemonModel {
         if(!pokemon.getNombre().matches("[a-zA-Z0-9]*")){
             callback.cuandoHayErrorEnElNombre("El nombre solo puede contener letras y numeros.");
             error = true;
+        }else if (pokemon.getNombre().equals("")){
+            callback.cuandoHayErrorEnElNombre("El nombre no puede estar vacio.");
+            error = true;
         }
+
         if (pokemon.getHp() < hpMinima || pokemon.getHp() > hpMaxima){
             callback.cuandoHayErrorEnLaVida(hpMinima, hpMaxima);
             error = true;

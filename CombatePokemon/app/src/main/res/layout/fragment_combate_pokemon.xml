@@ -6,24 +6,36 @@
     android:orientation="vertical"
     tools:context=".CombatePokemonFragment">
 
-
-    <TextView
-        android:id="@+id/primerPokemon"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Info 1"
-        android:textSize="50dp" />
+        android:id="@+id/linearScrollView">
 
-    <TextView
-        android:id="@+id/segundoPokemon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Info1"
-        android:textSize="50dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/mostarInfo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mostrar" />
+            <TextView
+                android:id="@+id/primerPokemon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Info 1"
+                android:textSize="50dp" />
+
+            <TextView
+                android:id="@+id/segundoPokemon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Info1"
+                android:textSize="50dp" />
+
+            <Button
+                android:id="@+id/combatir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Combatir" />
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
