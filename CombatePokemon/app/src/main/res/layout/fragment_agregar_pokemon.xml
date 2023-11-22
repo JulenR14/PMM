@@ -5,13 +5,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".AgregarPokemon">
+    android:id="@+id/fragment_agregar_pokemon"
+    tools:context=".AgregarPokemonFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/linearScrollView"
-        app:layout_constraintBottom_toTopOf="@+id/agregarPokemon"
+        app:layout_constraintBottom_toTopOf="@+id/crearPokemon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -143,12 +144,21 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/agregarPokemon"
+                android:id="@+id/crearPokemon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Guardar Pokemon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearScrollView"/>
+
+            <ProgressBar
+                android:id="@+id/calculando"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:scrollbarSize="15dp"
+                android:visibility="gone" />
+
         </LinearLayout>
     </ScrollView>
 

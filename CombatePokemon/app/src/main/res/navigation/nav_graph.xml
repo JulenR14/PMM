@@ -11,13 +11,13 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/agregarPokemon"
-        android:name="com.example.combatepokemon.AgregarPokemon"
+        android:id="@+id/agregarPokemonFragment"
+        android:name="com.example.combatepokemon.AgregarPokemonFragment"
         android:label="fragment_agregar_pokemon"
         tools:layout="@layout/fragment_agregar_pokemon" />
     <fragment
-        android:id="@+id/combatePokemon"
-        android:name="com.example.combatepokemon.CombatePokemon"
+        android:id="@+id/combatePokemonFragment"
+        android:name="com.example.combatepokemon.CombatePokemonFragment"
         android:label="fragment_combate_pokemon"
         tools:layout="@layout/fragment_combate_pokemon" />
 </navigation>
