@@ -86,12 +86,16 @@ public class PokemonModel {
         }
 
         int probabilidadAtaqueEspecial = (int) (Math.random() * 10 + 1);
-        int vidaDespuesAtaque;
+        int vidaDespuesAtaque = pokemonDefensa.getHp();
 
         if (probabilidadAtaqueEspecial <= 3) {
-            vidaDespuesAtaque = pokemonDefensa.getHp() - (pokemonAtaque.getAtaqueEspecial() - pokemonDefensa.getDefensaEspecial());
+            //if (pokemonAtaque.getAtaqueEspecial() > pokemonDefensa.getDefensaEspecial()){
+                vidaDespuesAtaque = pokemonDefensa.getHp() - (pokemonAtaque.getAtaqueEspecial() - pokemonDefensa.getDefensaEspecial());
+            //}
         }else{
-            vidaDespuesAtaque = pokemonDefensa.getHp() - (pokemonAtaque.getAtaque() - pokemonDefensa.getDefensa());
+            //if (pokemonAtaque.getAtaqueEspecial() > pokemonDefensa.getDefensaEspecial()){
+                vidaDespuesAtaque = pokemonDefensa.getHp() - (pokemonAtaque.getAtaque() - pokemonDefensa.getDefensa());
+            //}
         }
 
         if (vidaDespuesAtaque < 0){
