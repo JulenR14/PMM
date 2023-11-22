@@ -121,17 +121,19 @@ public class AgregarPokemonFragment extends Fragment {
             }
         });
 
-        pokemonViewModel.pokemon1.observe(getViewLifecycleOwner(), new Observer<Pokemon>() {
+        PokemonViewModel.pokemon1.observe(getViewLifecycleOwner(), new Observer<Pokemon>() {
             @Override
             public void onChanged(Pokemon pokemon) {
                 Toast.makeText(getContext(), "Pokemon 1 creado", Toast.LENGTH_SHORT).show();
+                binding.informacionPokemon.setText(pokemon.toString());
             }
         });
 
-        pokemonViewModel.pokemon2.observe(getViewLifecycleOwner(), new Observer<Pokemon>() {
+        PokemonViewModel.pokemon2.observe(getViewLifecycleOwner(), new Observer<Pokemon>() {
             @Override
             public void onChanged(Pokemon pokemon) {
                 Toast.makeText(getContext(), "Pokemon 2 creado", Toast.LENGTH_SHORT).show();
+                binding.informacionPokemon.setText(pokemon.toString());
             }
         });
 

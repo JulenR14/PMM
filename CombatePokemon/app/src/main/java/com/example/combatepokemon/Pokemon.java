@@ -18,6 +18,10 @@ public class Pokemon {
         this.defensaEspecial = defensaEspecial;
     }
 
+    public String toString(){
+        return "Nombre ." + nombre + "\nVida .  " + hp + "\nA . " + ataque + "\nD . " + defensa + "\nAE . " + ataqueEspecial + "\nDE . " + defensaEspecial;
+    }
+
     public Pokemon(){}
 
     public String getNombre() {

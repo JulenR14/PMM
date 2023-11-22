@@ -13,8 +13,10 @@ import java.util.concurrent.Executors;
 
 public class PokemonViewModel extends AndroidViewModel {
 
-    MutableLiveData<Pokemon> pokemon1 = new MutableLiveData<>();
-    MutableLiveData<Pokemon> pokemon2 = new MutableLiveData<>();
+    private int pokemonMetido = 0;
+
+    public static MutableLiveData<Pokemon> pokemon1 = new MutableLiveData<>();
+    public static MutableLiveData<Pokemon> pokemon2 = new MutableLiveData<>();
     MutableLiveData<String> errorNombre = new MutableLiveData<>();
     MutableLiveData<Integer> errorHp = new MutableLiveData<>();
     MutableLiveData<Integer> errorAtaque = new MutableLiveData<>();
@@ -58,10 +60,12 @@ public class PokemonViewModel extends AndroidViewModel {
                         errorAtaqueEspecial.postValue(null);
                         errorDefensaEspecial.postValue(null);
 
-                        if (pokemon1.equals(null)){
+                        if (pokemonMetido == 0){
                             pokemon1.postValue(pokemon);
-                        }else if (pokemon2 == null){
+                            pokemonMetido++;
+                        }else if (pokemonMetido == 1){
                             pokemon2.postValue(pokemon);
+                            pokemonMetido++;
                         }
                     }
 
