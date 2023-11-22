@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -33,6 +34,8 @@ public class Home extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         NavController navHostFragment = NavHostFragment.findNavController(this);
+
+        final PokemonViewModel pokemonViewModel = new ViewModelProvider(this).get(PokemonViewModel.class);
 
         binding.agregarPokemon.setOnClickListener(new View.OnClickListener() {
             @Override

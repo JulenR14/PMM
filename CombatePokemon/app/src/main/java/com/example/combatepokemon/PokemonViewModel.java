@@ -23,8 +23,8 @@ public class PokemonViewModel extends AndroidViewModel {
     MutableLiveData<Integer> errorDefensa = new MutableLiveData<>();
     MutableLiveData<Integer> errorAtaqueEspecial = new MutableLiveData<>();
     MutableLiveData<Integer> errorDefensaEspecial = new MutableLiveData<>();
-
     MutableLiveData<Boolean> creandoPokemon = new MutableLiveData<>();
+    MutableLiveData<Boolean> batallaTerminada = new MutableLiveData<>();
 
     PokemonModel pokemonModel;
 
@@ -107,5 +107,27 @@ public class PokemonViewModel extends AndroidViewModel {
             }
         });
 
+    }
+
+    public void combatir(){
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+
+                boolean pokemonQueAtaca = true;
+
+                while(pokemon1.getValue().getHp() > 0 && pokemon2.getValue().getHp() > 0){
+                    if (pokemonQueAtaca){
+                        pokemon2.postValue(pokemonModel.combatir(pokemon1.getValue(), pokemon2.getValue()));
+                        pokemonQueAtaca = false;
+                    }else{
+                        pokemon1.postValue(pokemonModel.combatir(pokemon2.getValue(), pokemon1.getValue()));
+                        pokemonQueAtaca = true;
+                    }
+                }
+
+                batallaTerminada.postValue(true);
+            }
+        });
     }
 }

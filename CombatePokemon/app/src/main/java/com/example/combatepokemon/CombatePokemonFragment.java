@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.combatepokemon.databinding.FragmentCombatePokemonBinding;
 
@@ -31,16 +32,32 @@ public class CombatePokemonFragment extends Fragment {
 
         final PokemonViewModel pokemonViewModel = new ViewModelProvider(this).get(PokemonViewModel.class);
 
-        binding.primerPokemon.setText(pokemonViewModel.pokemon1.getValue().toString());
-        binding.segundoPokemon.setText(pokemonViewModel.pokemon2.getValue().toString());
+        if (PokemonViewModel.pokemon1.getValue() != null && PokemonViewModel.pokemon2.getValue() != null){
+            PokemonViewModel.pokemon1.observe(getViewLifecycleOwner(), pokemon -> {
+                binding.primerPokemon.setText(pokemon.toString());
+            });
+            pokemonViewModel.pokemon2.observe(getViewLifecycleOwner(), pokemon -> {
+                binding.segundoPokemon.setText(pokemon.toString());
+            });
 
-        binding.combatir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            binding.combatir.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    pokemonViewModel.combatir();
+                }
+            });
 
-            }
-        });
+            pokemonViewModel.batallaTerminada.observe(getViewLifecycleOwner(), batallaTerminada -> {
+                if (batallaTerminada){
+                    Toast.makeText(getContext(), "Batalla terminada", Toast.LENGTH_SHORT).show();
+                }
+            });
 
-
+        }else{
+            binding.primerPokemon.setVisibility(View.GONE);
+            binding.segundoPokemon.setVisibility(View.GONE);
+            binding.combatir.setVisibility(View.GONE);
+            Toast.makeText(getContext(), "No hay pokemons, vuelve y crealos", Toast.LENGTH_SHORT).show();
+        }
     }
 }

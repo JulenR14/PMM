@@ -14,6 +14,7 @@ public class PokemonModel {
         void cuandoTerminaCrearPokemon();
     }
 
+
     public void agregarPokemon(Pokemon pokemon, Callback callback){
 
         callback.cuandoEmpiezaCrearPokemon();
@@ -74,5 +75,29 @@ public class PokemonModel {
         }
 
         callback.cuandoTerminaCrearPokemon();
+    }
+
+    public Pokemon combatir (Pokemon pokemonAtaque, Pokemon pokemonDefensa){
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        int probabilidadAtaqueEspecial = (int) (Math.random() * 10 + 1);
+        int vidaDespuesAtaque;
+
+        if (probabilidadAtaqueEspecial <= 3) {
+            vidaDespuesAtaque = pokemonDefensa.getHp() - (pokemonAtaque.getAtaqueEspecial() - pokemonDefensa.getDefensaEspecial());
+        }else{
+            vidaDespuesAtaque = pokemonDefensa.getHp() - (pokemonAtaque.getAtaque() - pokemonDefensa.getDefensa());
+        }
+
+        if (vidaDespuesAtaque < 0){
+            vidaDespuesAtaque = 0;
+        }
+
+        return new Pokemon(pokemonDefensa.getNombre(), vidaDespuesAtaque, pokemonDefensa.getAtaque(), pokemonDefensa.getDefensa(), pokemonDefensa.getAtaqueEspecial(), pokemonDefensa.getDefensaEspecial());
     }
 }
