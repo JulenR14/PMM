@@ -39,14 +39,21 @@ public class CombatePokemonFragment extends Fragment {
             pokemonViewModel.pokemon2.observe(getViewLifecycleOwner(), pokemon -> {
                 binding.segundoPokemon.setText(pokemon.toString());
             });
-
             binding.combatir.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     pokemonViewModel.combatir();
                 }
             });
-
+            pokemonViewModel.pokemonAtaca.observe(getViewLifecycleOwner(), pokemonAtaca -> {
+                if (pokemonAtaca){
+                    binding.primerPokemon.setTextColor(getResources().getColor(R.color.white));
+                    binding.segundoPokemon.setTextColor(getResources().getColor(R.color.black));
+                }else {
+                    binding.primerPokemon.setTextColor(getResources().getColor(R.color.black));
+                    binding.segundoPokemon.setTextColor(getResources().getColor(R.color.white));
+                }
+            });
             pokemonViewModel.batallaTerminada.observe(getViewLifecycleOwner(), batallaTerminada -> {
                 if (batallaTerminada){
                     Toast.makeText(getContext(), "Batalla terminada", Toast.LENGTH_SHORT).show();

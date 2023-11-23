@@ -6,7 +6,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:id="@+id/fragment_agregar_pokemon"
-    tools:context=".AgregarPokemonFragment">
+    tools:context=".AgregarPokemonFragment"
+    android:background="@android:color/holo_red_light"
+    android:backgroundTint="#DF5050">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,7 +32,8 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:ems="15"
-                android:textSize="20sp">
+                android:textSize="20sp"
+                android:textColorHint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/nombre"
@@ -50,7 +53,8 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:ems="15"
-                android:textSize="20sp">
+                android:textSize="20sp"
+                android:textColorHint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/hp"
@@ -70,7 +74,8 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:ems="15"
-                android:textSize="20sp">
+                android:textSize="20sp"
+                android:textColorHint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/ataque"
@@ -90,7 +95,8 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:ems="15"
-                android:textSize="20sp">
+                android:textSize="20sp"
+                android:textColorHint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/defensa"
@@ -110,7 +116,8 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:ems="15"
-                android:textSize="20sp">
+                android:textSize="20sp"
+                android:textColorHint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/ataqueEspecial"
@@ -130,7 +137,8 @@
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:ems="15"
-                android:textSize="20sp">
+                android:textSize="20sp"
+                android:textColorHint="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/defensaEspecial"
@@ -149,7 +157,8 @@
                 android:layout_height="wrap_content"
                 android:text="Guardar Pokemon"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearScrollView"/>
+                app:layout_constraintTop_toBottomOf="@+id/linearScrollView"
+                android:backgroundTint="@color/black"/>
 
             <ProgressBar
                 android:id="@+id/calculando"

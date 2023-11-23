@@ -4,37 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_red_light"
+    android:backgroundTint="#DF5050"
     tools:context=".Home">
 
-    <TextView
-        android:id="@+id/textoInicio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
-        android:text="POKEMON!"
-        android:textSize="50sp"
-        android:textStyle="bold"
+
+    <ImageView
+        android:id="@+id/textoPokemonInicio"
+        android:layout_width="519dp"
+        android:layout_height="319dp"
+        android:layout_marginTop="96dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher_foreground" />
 
     <Button
         android:id="@+id/empezarCombate"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
         android:text="Combate"
         app:layout_constraintBottom_toTopOf="@+id/agregarPokemon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoInicio"
-        app:layout_constraintVertical_bias="0.671" />
+        app:layout_constraintTop_toBottomOf="@+id/textoPokemonInicio"
+        app:layout_constraintVertical_bias="0.178" />
 
     <Button
         android:id="@+id/agregarPokemon"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="160dp"
+        android:layout_marginBottom="136dp"
+        android:backgroundTint="@color/black"
         android:text="Agregar Pokemon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

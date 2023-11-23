@@ -25,6 +25,7 @@ public class PokemonViewModel extends AndroidViewModel {
     MutableLiveData<Integer> errorDefensaEspecial = new MutableLiveData<>();
     MutableLiveData<Boolean> creandoPokemon = new MutableLiveData<>();
     MutableLiveData<Boolean> batallaTerminada = new MutableLiveData<>();
+    MutableLiveData<Boolean> pokemonAtaca = new MutableLiveData<>();
 
     PokemonModel pokemonModel;
 
@@ -113,16 +114,18 @@ public class PokemonViewModel extends AndroidViewModel {
         executor.execute(new Runnable() {
             @Override
             public void run() {
-
-                boolean pokemonQueAtaca = true;
+                boolean pokemonAtacaC = true;
+                pokemonAtaca.postValue(true);
 
                 while(pokemon1.getValue().getHp() > 0 && pokemon2.getValue().getHp() > 0){
-                    if (pokemonQueAtaca){
+                    if (pokemonAtacaC){
                         pokemon2.postValue(pokemonModel.combatir(pokemon1.getValue(), pokemon2.getValue()));
-                        pokemonQueAtaca = false;
+                        pokemonAtaca.postValue(false);
+                        pokemonAtacaC = false;
                     }else{
                         pokemon1.postValue(pokemonModel.combatir(pokemon2.getValue(), pokemon1.getValue()));
-                        pokemonQueAtaca = true;
+                        pokemonAtaca.postValue(true);
+                        pokemonAtacaC = true;
                     }
                 }
 

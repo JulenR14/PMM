@@ -34,7 +34,7 @@ public class PokemonModel {
         boolean error = false;
 
         try {
-            Thread.sleep(5000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -89,13 +89,13 @@ public class PokemonModel {
         int vidaDespuesAtaque = pokemonDefensa.getHp();
 
         if (probabilidadAtaqueEspecial <= 3) {
-            //if (pokemonAtaque.getAtaqueEspecial() > pokemonDefensa.getDefensaEspecial()){
+            if (pokemonAtaque.getAtaqueEspecial() > pokemonDefensa.getDefensaEspecial()){
                 vidaDespuesAtaque = pokemonDefensa.getHp() - (pokemonAtaque.getAtaqueEspecial() - pokemonDefensa.getDefensaEspecial());
-            //}
+            }
         }else{
-            //if (pokemonAtaque.getAtaqueEspecial() > pokemonDefensa.getDefensaEspecial()){
+            if (pokemonAtaque.getAtaqueEspecial() > pokemonDefensa.getDefensaEspecial()){
                 vidaDespuesAtaque = pokemonDefensa.getHp() - (pokemonAtaque.getAtaque() - pokemonDefensa.getDefensa());
-            //}
+            }
         }
 
         if (vidaDespuesAtaque < 0){
