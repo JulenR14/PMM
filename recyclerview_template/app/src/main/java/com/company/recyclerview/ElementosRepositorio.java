@@ -19,7 +19,7 @@ public class ElementosRepositorio {
 
     public interface Api {
         @GET("search/")
-        Call<Elemento> buscar(@Query("q") String query);
+        Call<Elemento> buscar();
     }
 
     interface Callback {

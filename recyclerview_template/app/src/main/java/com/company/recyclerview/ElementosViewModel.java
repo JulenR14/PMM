@@ -54,6 +54,19 @@ public class ElementosViewModel extends AndroidViewModel {
     }
 
     void actualizar(Elemento elemento, float valoracion){
+//        ElementosRepositorio.api.buscar().enqueue(new retrofit2.Callback<Elemento>() {
+//            @Override
+//            public void onResponse(retrofit2.Call<Elemento> call, retrofit2.Response<Elemento> response) {
+//                if(response.isSuccessful()){
+//                    listElementosMutableLiveData.setValue(elementosRepositorio.obtener());
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(retrofit2.Call<Elemento> call, Throwable t) {
+//
+//            }
+//        });
         elementosRepositorio.actualizar(elemento, valoracion, new ElementosRepositorio.Callback() {
             @Override
             public void cuandoFinalice(List<Elemento> elementos) {
