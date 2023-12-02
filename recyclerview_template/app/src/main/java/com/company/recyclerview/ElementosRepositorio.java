@@ -12,14 +12,16 @@ public class ElementosRepositorio {
 
     List<Elemento> elementos = new ArrayList<>();
 
-    public static Api api = new Retrofit.Builder()
-        .baseUrl("https://pokeapi.co/api/v2/pokemon-species/")
-        .build()
-        .create(Api.class);
-
-    public interface Api {
-        @GET("search/")
-        Call<Elemento> buscar();
+    public ElementosRepositorio(){
+        elementos.add(new Elemento("bulbasaur", "El ratio de captura es de 45, su color es el verde y su género es masculino o femenino. Su hábitat son los bosques y su especie es la semilla. Su peso es de 6,9 kg y su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la semilla. Su ratio de captura es de 45. Su color es el verde. Su género es masculino o femenino. Su hábitat son los bosques. Su peso es de 6,9 kg. Su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la semilla. Su ratio de captura es de 45. Su color es el verde. Su género es masculino o femenino. Su hábitat son los bosques. Su peso es de 6,9 kg. Su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la semilla."));
+        elementos.add(new Elemento("ivysaur", "El ratio de captura es de 45, su color es el verde y su género es masculino o femenino. Su hábitat son los bosques y su especie es la semilla. Su peso es de 6,9 kg y su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la semilla. Su ratio de captura es de 45. Su color es el verde. Su género es masculino o femenino. Su hábitat son los bosques. Su peso es de 6,9 kg. Su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la semilla. Su ratio de captura es de 45. Su color es el verde. Su género es masculino o femenino. Su hábitat son los bosques. Su peso es de 6,9 kg. Su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la"));
+        elementos.add(new Elemento("venusaur", "El ratio de captura es de 45, su color es el verde y su género es masculino o femenino. Su hábitat son los bosques y su especie es la semilla. Su peso es de 6,9 kg y su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la semilla. Su ratio de captura es de 45. Su color es el verde y su género es masculino o femenino. Su hábitat son los bosques y su especie es la semilla. Su peso es de 6,9 kg y su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la semilla. Su ratio de captura es de 45. Su color es el verde y su género es masculino o femenino. Su hábitat son los bosques y su especie es la semilla. Su peso es de 6,9 kg y su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la"));
+        elementos.add(new Elemento("charmander", "El ratio de captura es de 45, su color es el verde y su género es masculino o femenino. Su hábitat son los bosques y su especie es la semilla. Su peso es de 6,9 kg y su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la"));
+        elementos.add(new Elemento("charmeleon", "El ratio de captura es de 45, su color es el verde y su género es masculino o femenino. Su hábitat son los bosques y su especie es la semilla. Su peso es de 6,9 kg y su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la"));
+        elementos.add(new Elemento("charizard", "El ratio de captura es de 45, su color es el verde y su género es masculino o femenino. Su hábitat son los bosques y su especie es la semilla. Su peso es de 6,9 kg y su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la"));
+        elementos.add(new Elemento("squirtle", "El ratio de captura es de 45, su color es el verde y su género es masculino o femenino. Su hábitat son los bosques y su especie es la semilla. Su peso es de 6,9 kg y su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la"));
+        elementos.add(new Elemento("wartortle", "El ratio de captura es de 45, su color es el verde y su género es masculino o femenino. Su hábitat son los bosques y su especie es la semilla. Su peso es de 6,9 kg y su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la"));
+        elementos.add(new Elemento("blastoise", "El ratio de captura es de 45, su color es el verde y su género es masculino o femenino. Su hábitat son los bosques y su especie es la semilla. Su peso es de 6,9 kg y su altura es de 0,7 m. Su habilidad es espesura y clorofila. Su tipo es planta y veneno. Su especie es la"));
     }
 
     interface Callback {
