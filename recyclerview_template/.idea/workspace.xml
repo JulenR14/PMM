@@ -4,13 +4,131 @@
     <shared>
       <config />
     </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+        <config>
+          <theme>@style/Theme.RecyclerView</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_mostrar_elemento.xml">
+        <config>
+          <theme>@style/Theme.RecyclerView</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_nuevo_elemento.xml">
+        <config>
+          <theme>@style/Theme.RecyclerView</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_recycler_elementos.xml">
+        <config>
+          <theme>@style/Theme.RecyclerView</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/viewholder_elemento.xml">
+        <config>
+          <theme>@style/Theme.RecyclerView</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml">
+        <config>
+          <theme>@style/Theme.RecyclerView</theme>
+        </config>
+      </layout>
+    </layouts>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a963804-6b5d-421a-bc59-f5c79e744e09" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/.idea/migrations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/androidTest/java/com/example/repasoexamen_1pmdm/ExampleInstrumentedTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/ic_launcher-playstore.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/java/com/example/repasoexamen_1pmdm/DrawerActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/java/com/example/repasoexamen_1pmdm/ItemAleatorio.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/java/com/example/repasoexamen_1pmdm/ListadoItems.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/java/com/example/repasoexamen_1pmdm/MainActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/java/com/example/repasoexamen_1pmdm/movimientos/ModelMovimientos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/java/com/example/repasoexamen_1pmdm/movimientos/MostrarMovimiento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/java/com/example/repasoexamen_1pmdm/movimientos/Movimiento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/java/com/example/repasoexamen_1pmdm/movimientos/RecyclerListadoMovimientos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/java/com/example/repasoexamen_1pmdm/movimientos/ViewModelMovimientos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/layout/activity_drawer.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/layout/drawer_header.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/layout/fragment_item_aleatorio.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/layout/fragment_listado_items.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/layout/fragment_listado_movimientos.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/layout/fragment_mostrar_movimiento.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/layout/viewholder_movimiento.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/menu/drawer_menu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/navigation/drawer_graph.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/app/src/test/java/com/example/repasoexamen_1pmdm/ExampleUnitTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/gradle.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RepasoExamen_1PMDM/settings.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EjercicioNavegacion/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../EjercicioNavegacion/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EjercicioNavegacion/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../EjercicioNavegacion/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EjercicioNavegacion/app/src/main/res/layout/drawer_header.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../EjercicioNavegacion/app/src/main/res/layout/drawer_header.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.5/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/company/recyclerview/RecyclerElementosFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/company/recyclerview/RecyclerElementosFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,11 +138,49 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[C:\Users\julen\.android\avd\Pixel_3_API_34.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[adb-y9euts8pmfifkzai-2ViXwZ._adb-tls-connect._tcp]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="RecyclerView" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="RecyclerView" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="RecyclerView" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="RecyclerView" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="other" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -53,10 +209,12 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
+    "android-custom-viewC:/Users/julen/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED": "RecyclerView",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/julen/Documents/GitHub/PMM/recyclerview_template",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/julen/Documents/GitHub/PMM/RepasoExamen_1PMDM",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.17",
     "project.structure.side.proportion": "0.2",

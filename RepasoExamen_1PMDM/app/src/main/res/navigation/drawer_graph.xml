@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_graph"
+    app:startDestination="@id/listadoMovimientos">
+
+    <fragment
+        android:id="@+id/listadoMovimientos"
+        android:name="com.example.repasoexamen_1pmdm.movimientos.RecyclerListadoMovimientos"
+        android:label="fragment_listado_movimientos"
+        tools:layout="@layout/fragment_listado_movimientos" >
+        <action
+            android:id="@+id/action_listadoMovimientos_to_mostrarMovimiento"
+            app:destination="@id/mostrarMovimiento" />
+    </fragment>
+    <fragment
+        android:id="@+id/listadoItems"
+        android:name="com.example.repasoexamen_1pmdm.ListadoItems"
+        android:label="fragment_listado_items"
+        tools:layout="@layout/fragment_listado_items" />
+    <fragment
+        android:id="@+id/itemAleatorio"
+        android:name="com.example.repasoexamen_1pmdm.ItemAleatorio"
+        android:label="fragment_item_aleatorio"
+        tools:layout="@layout/fragment_item_aleatorio" />
+    <fragment
+        android:id="@+id/mostrarMovimiento"
+        android:name="com.example.repasoexamen_1pmdm.movimientos.MostrarMovimiento"
+        android:label="fragment_mostrar_movimiento"
+        tools:layout="@layout/fragment_mostrar_movimiento" />
+</navigation>

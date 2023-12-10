@@ -44,7 +44,8 @@ public class RecyclerElementosFragment extends Fragment {
         binding.irANuevoElemento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_recyclerElementosFragment_to_nuevoElementoFragment);
+                //navController.navigate(R.id.action_recyclerElementosFragment_to_nuevoElementoFragment);
+                navController.navigate(R.id.nuevoElementoFragment);
             }
         });
 
@@ -116,7 +117,8 @@ public class RecyclerElementosFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     elementosViewModel.seleccionar(elemento);
-                    navController.navigate(R.id.action_recyclerElementosFragment_to_mostrarElementoFragment);
+                    //navController.navigate(R.id.action_recyclerElementosFragment_to_mostrarElementoFragment);
+                    navController.navigate(R.id.mostrarElementoFragment);
                 }
             });
         }

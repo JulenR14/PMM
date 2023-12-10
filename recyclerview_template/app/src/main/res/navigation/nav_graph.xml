@@ -10,12 +10,12 @@
         android:name="com.company.recyclerview.RecyclerElementosFragment"
         android:label="fragment_recycler_elementos"
         tools:layout="@layout/fragment_recycler_elementos" >
-        <action
+        <!--<action
             android:id="@+id/action_recyclerElementosFragment_to_mostrarElementoFragment"
             app:destination="@id/mostrarElementoFragment" />
         <action
             android:id="@+id/action_recyclerElementosFragment_to_nuevoElementoFragment"
-            app:destination="@id/nuevoElementoFragment" />
+            app:destination="@id/nuevoElementoFragment" />-->
     </fragment>
     <fragment
         android:id="@+id/nuevoElementoFragment"
