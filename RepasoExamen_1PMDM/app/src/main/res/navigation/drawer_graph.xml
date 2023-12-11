@@ -16,9 +16,13 @@
     </fragment>
     <fragment
         android:id="@+id/listadoItems"
-        android:name="com.example.repasoexamen_1pmdm.ListadoItems"
+        android:name="com.example.repasoexamen_1pmdm.items.RecyclerListadoItems"
         android:label="fragment_listado_items"
-        tools:layout="@layout/fragment_listado_items" />
+        tools:layout="@layout/fragment_listado_items" >
+        <action
+            android:id="@+id/action_listadoItems_to_mostrarItem"
+            app:destination="@id/mostrarItem" />
+    </fragment>
     <fragment
         android:id="@+id/itemAleatorio"
         android:name="com.example.repasoexamen_1pmdm.ItemAleatorio"
@@ -29,4 +33,9 @@
         android:name="com.example.repasoexamen_1pmdm.movimientos.MostrarMovimiento"
         android:label="fragment_mostrar_movimiento"
         tools:layout="@layout/fragment_mostrar_movimiento" />
+    <fragment
+        android:id="@+id/mostrarItem"
+        android:name="com.example.repasoexamen_1pmdm.items.mostrarItem"
+        android:label="fragment_mostrar_item"
+        tools:layout="@layout/fragment_mostrar_item" />
 </navigation>
