@@ -38,12 +38,12 @@ public class ItunesFragment extends Fragment {
         binding.texto.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                itunesViewModel.buscar(query);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                itunesViewModel.buscar(newText);
                 return false;
             }
         });
@@ -51,7 +51,7 @@ public class ItunesFragment extends Fragment {
         itunesViewModel.respuestaMutableLiveData.observe(getViewLifecycleOwner(),new Observer<Itunes.Respuesta>() {
             @Override
             public void onChanged(Itunes.Respuesta respuesta) {
-                respuesta.resultados.forEach(contenido -> Log.e("ABCD", contenido.artistName + ", " + contenido.trackName + ", " + contenido.artworkUrl100));
+                respuesta.resultados.forEach(contenido -> Log.e("ABCD", contenido.name));
             }
         });
     }

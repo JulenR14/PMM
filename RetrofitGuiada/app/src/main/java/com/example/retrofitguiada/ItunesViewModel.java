@@ -1,6 +1,7 @@
 package com.example.retrofitguiada;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -18,14 +19,16 @@ public class ItunesViewModel extends AndroidViewModel {
     }
 
     public void buscar(String texto){
-        Itunes.api.buscar(texto).enqueue(new Callback<Itunes.Respuesta>() {
+        Itunes.api.buscar(20, Integer.parseInt(texto)).enqueue(new Callback<Itunes.Respuesta>() {
             @Override
             public void onResponse(Call<Itunes.Respuesta> call, Response<Itunes.Respuesta> response) {
                 respuestaMutableLiveData.setValue(response.body());
             }
 
             @Override
-            public void onFailure(Call<Itunes.Respuesta> call, Throwable t) {}
+            public void onFailure(Call<Itunes.Respuesta> call, Throwable t) {
+                Log.d("Error", t.getMessage());
+            }
         });
     }
 }

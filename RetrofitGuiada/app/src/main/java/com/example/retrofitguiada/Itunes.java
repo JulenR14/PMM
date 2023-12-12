@@ -15,20 +15,18 @@ public class Itunes {
     }
 
     class Contenido{
-        String artistName;
-        String trackName;
-        String artworkUrl100;
+        String name;
     }
 
     public static Api api = new Retrofit.Builder()
-            .baseUrl("https://itunes.apple.com/")
+            .baseUrl("https://pokeapi.co/api/v2/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(Api.class);
 
     public interface Api {
-        @GET("search/")
-        Call<Respuesta> buscar(@Query("term") String artista);
+        @GET("pokemon/")
+        Call<Respuesta> buscar(@Query("limit") int limit, @Query("offset") int offset);
     }
 
 }
