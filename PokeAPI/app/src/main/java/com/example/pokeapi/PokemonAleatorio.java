@@ -41,8 +41,7 @@ public class PokemonAleatorio extends AppCompatActivity {
                 Pokemon pokemon = response.body();
                 if (pokemon != null) {
                     pokemonName.setText(pokemon.getName());
-                    pokemonHeight.setText(pokemon.getHeight());
-                    pokemonWeight.setText(pokemon.getWeight());
+                    pokemonHeight.setText(pokemon.getUrl());
                 }
             }
 

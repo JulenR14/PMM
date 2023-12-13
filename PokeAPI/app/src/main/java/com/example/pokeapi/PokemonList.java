@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.pokeapi.models.PokeList;
 import com.example.pokeapi.models.Pokemon;
 import com.example.pokeapi.poqueapi.PokeApiService;
 
@@ -33,22 +34,23 @@ public class PokemonList extends AppCompatActivity {
 
         PokeApiService service = retrofit.create(PokeApiService.class);
 
-        Call<List<Pokemon>> pokemonCall = service.getPokemonList(20, 5);
+        Call<PokeList> pokemonCall = service.getPokemonList(30, 0);
 
-        pokemonCall.enqueue(new Callback<List<Pokemon>>() {
+        pokemonCall.enqueue(new Callback<PokeList>() {
             @Override
-            public void onResponse(Call<List<Pokemon>> call, Response<List<Pokemon>> response) {
-                List<Pokemon> pokemons = response.body();
+            public void onResponse(Call<PokeList> call, Response<PokeList> response) {
+                List<Pokemon> pokemons = response.body().getResults();
                 StringBuilder lista = new StringBuilder();
                 if (pokemons != null) {
                     for (Pokemon p : pokemons) {
                         lista.append(p.getName()).append("\n");
                     }
                 }
+                listaPokemons.setText(lista);
             }
 
             @Override
-            public void onFailure(Call<List<Pokemon>> call, Throwable t) {
+            public void onFailure(Call<PokeList> call, Throwable t) {
                 Log.d("POKEDEX", "onFailure: " + t.getMessage());
             }
         });

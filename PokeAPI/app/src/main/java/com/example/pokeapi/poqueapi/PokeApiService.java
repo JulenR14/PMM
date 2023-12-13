@@ -1,5 +1,6 @@
 package com.example.pokeapi.poqueapi;
 
+import com.example.pokeapi.models.PokeList;
 import com.example.pokeapi.models.Pokemon;
 
 import java.util.List;
@@ -15,6 +16,6 @@ public interface PokeApiService {
     @GET("pokemon/{id}")
     Call<Pokemon> getPokemon(@Path("id") String id);
 
-    @GET("pokemon")
-    Call<List<Pokemon>> getPokemonList(@Query("limit") int limit, @Query("offset") int offset);
+    @GET("pokemon/")
+    Call<PokeList> getPokemonList(@Query("limit") int limit, @Query("offset") int offset);
 }

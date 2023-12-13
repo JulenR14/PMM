@@ -5,19 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
+    android:background="#B3B3B3"
     tools:context=".PokemonList">
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="15dp">
+        android:layout_height="500dp"
+        android:layout_margin="15dp"
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/listaPokemons"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textSize="24dp"
-            android:text="Listado" />
+            android:text="Listado"
+            android:gravity="center"
+            />
     </ScrollView>
 </LinearLayout>
