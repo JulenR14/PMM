@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--con data podremos llamar a metodos y variables de la clase
+    Move expecificada-->
+    <data>
+        <variable
+            name="move"
+            type="com.example.examenfinal.models.Move" />
+    </data>
+
+    <!--Layout para mostrar los detalles de un movimiento-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp">
+
+        <!--Este sera el titulo de el nombre del Movimiento-->
+        <TextView
+            android:id="@+id/textMovement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#000000"
+            android:backgroundTint="@color/teal_200"
+            android:text="Movement"
+            android:textSize="24dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/name"/>
+
+        <!--Aqui mostraremos el movimiento correspondiente,
+        llamando a la variable de la clase Move-->
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#000000"
+            android:backgroundTint="@color/teal_200"
+            android:text="@{move.name}"
+            android:textSize="24dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textMovement" />
+
+        <!--Este sera el titulo de el nombre del Acuracy-->
+        <TextView
+            android:id="@+id/textcuracy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#000000"
+            android:backgroundTint="@color/teal_200"
+            android:text="Accuracy"
+            android:textSize="24dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <!--Aqui mostraremos la cantidad de el Accuracy correspondiente
+        llamando a la variable de la clase Move-->
+        <TextView
+            android:id="@+id/accuracy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="#000000"
+            android:backgroundTint="@color/teal_200"
+            android:text="@{move.accuracy}"
+            android:textSize="24dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textcuracy"
+            app:layout_constraintBottom_toTopOf="@id/textPokemon"/>
+
+        <!--Esto es el titulo de la lista de pokemons-->
+        <TextView
+            android:id="@+id/textPokemon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:backgroundTint="@color/teal_200"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="Pokemon"
+            android:textSize="24dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/accuracy"/>
+
+        <!--Y por ultimo, he puesto un linearLayout para poder encajar
+        bien el scrollView, en el cual se situan los pokemons que
+        utilizan este movimiento, de esta forma, podremos verlos todos
+        realizando un scroll-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textPokemon">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/listaPokemons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#000000"
+                    android:backgroundTint="@color/teal_200"
+                    android:text="@{move.getPokemonsString()}"
+                    android:textSize="24dp"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textPokemon" />
+            </ScrollView>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
