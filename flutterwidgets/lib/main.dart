@@ -12,22 +12,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Comarcas de la Comunitat',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
@@ -38,16 +24,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -55,49 +31,69 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
+    //para que la app no este por debajo de la barra de estado
+    return SafeArea(
+            child: Scaffold(
+              body:Container(
+                  height: MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      opacity: 0.2,
+                        image: AssetImage("assets/images/background.png"), // Imagen de fondo
+                        repeat: ImageRepeat.repeat
+                    ),
+                  ),
+                    child: Center(
+                        child: Column(
+                          //alineamos el contenido en el centro
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset("assets/images/LogoInstituto.png",
+                                scale: 2),
+                            const Padding(padding: EdgeInsets.only(top: 20),
+                                child: Text("Les Comarques de la Comunitat Valenciana",
+                                  style: TextStyle(
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontFamily: 'MyFuente'
+                                  ),
+                                  textAlign: TextAlign.center,
+                                )
+                            ),
 
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/images/background.png"), // Imagen de fondo
-          fit: BoxFit.cover // Hace que la imagen ocupe todo el fondo
-        ),
-      ),
-      child: Scaffold(
-          // Hace que el fondo del Scaffold sea transparente mostrando la imagen de fondo
-          backgroundColor: Colors.transparent,
-          body: Center(
-            child: Column(
-              //aliniamos el contenido en el centro
-              mainAxisAlignment: MainAxisAlignment.center,
-              //añadimos los widgets hijos con el texto y el contador
-              children: <Widget>[
-                const Text(
-                  'Has pulsado el botón tantas veces:',
-                ),
-                Text(
-                  '$_counter',
-                  style: Theme.of(context).textTheme.headline4,
-                ),
-              ],
-            ),
-          )
-        )
-    );
+                            const Padding(padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  hintText: 'Usuario',
+                                  fillColor: Colors.white,
+                                  filled: true,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 30),
+                            const Padding(padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    hintText: 'Contraseña',
+                                    fillColor: Colors.white,
+                                    filled: true,
+                                  ),
+                                )
+                            ),
+
+                          ],
+                          //añadimos los widgets hijos con el texto y el contador
+                        )
+                    )
+                    ,
+                  )
+              )
+            );
   }
 }
