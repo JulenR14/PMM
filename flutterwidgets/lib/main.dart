@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterwidgets/pantallas/Provincia_pantalla.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Comarcas de la Comunitat'),
+      //home: const provincia_pantalla(),
     );
   }
 }
@@ -37,15 +39,16 @@ class _MyHomePageState extends State<MyHomePage> {
     //para que la app no este por debajo de la barra de estado
     return SafeArea(
             child: Scaffold(
-              body:Container(
-                  height: MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      opacity: 0.2,
-                        image: AssetImage("assets/images/background.png"), // Imagen de fondo
-                        repeat: ImageRepeat.repeat
+              body: SingleChildScrollView(
+                  child: Container(
+                    height: MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          opacity: 0.2,
+                          image: AssetImage("assets/images/background.png"), // Imagen de fondo
+                          repeat: ImageRepeat.repeat
+                      ),
                     ),
-                  ),
                     child: Center(
                         child: Column(
                           //alineamos el contenido en el centro
@@ -56,10 +59,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             const Padding(padding: EdgeInsets.only(top: 20),
                                 child: Text("Les Comarques de la Comunitat Valenciana",
                                   style: TextStyle(
-                                    fontSize: 40,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                    fontFamily: 'MyFuente'
+                                      fontSize: 40,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontFamily: 'MyFuente'
                                   ),
                                   textAlign: TextAlign.center,
                                 )
@@ -78,6 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             const SizedBox(width: 30),
                             const Padding(padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                                 child: TextField(
+                                  obscureText: true,
                                   decoration: InputDecoration(
                                     border: OutlineInputBorder(),
                                     hintText: 'Contraseña',
@@ -86,13 +90,52 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                 )
                             ),
-
+                            Padding(padding:const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                                child: Center(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(padding: const EdgeInsets.symmetric(horizontal: 10),
+                                          child: FilledButton.tonal(
+                                              style: ButtonStyle(
+                                                backgroundColor: MaterialStateProperty.all(Colors.blueGrey),
+                                              ),
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(builder: (context) => const provincia_pantalla()),
+                                                );
+                                              },
+                                              child: const Text("Log in",
+                                                  style: TextStyle(
+                                                      color: Colors.white
+                                                  )
+                                              )
+                                          )),
+                                      Padding(padding: const EdgeInsets.symmetric(horizontal: 10),
+                                          child: FilledButton.tonal(
+                                              style: ButtonStyle(
+                                                backgroundColor: MaterialStateProperty.all(Colors.blueGrey),
+                                              ),
+                                              onPressed: null,
+                                              child: const Text("Sign up",
+                                                style: TextStyle(
+                                                    color: Colors.white
+                                                ),
+                                              )
+                                          )
+                                      ),
+                                    ],
+                                  ),
+                                )
+                            )
                           ],
                           //añadimos los widgets hijos con el texto y el contador
                         )
                     )
                     ,
                   )
+              )
               )
             );
   }
