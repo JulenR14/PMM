@@ -49,8 +49,7 @@ class _provincia_pantallaState extends State<provincia_pantalla> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const comarcas_pantalla()),
-                            );
+                              MaterialPageRoute(builder: (context) => comarcas_pantalla(indiceProvincia: 0)));
                           },
                           child: Stack(
                             alignment: Alignment.center,
@@ -78,8 +77,7 @@ class _provincia_pantallaState extends State<provincia_pantalla> {
                             onTap: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const comarcas_pantalla()),
-                              );
+                                MaterialPageRoute(builder: (context) => comarcas_pantalla(indiceProvincia: 1)));
                             },
                             child: Stack(
                                 alignment: Alignment.center,
@@ -106,8 +104,7 @@ class _provincia_pantallaState extends State<provincia_pantalla> {
                             onTap: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const comarcas_pantalla()),
-                              );
+                                MaterialPageRoute(builder: (context) => comarcas_pantalla(indiceProvincia: 2)));
                             },
                             child: Stack(
                                 alignment: Alignment.center,
