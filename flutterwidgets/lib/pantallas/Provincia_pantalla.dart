@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterwidgets/main.dart';
+import 'package:flutterwidgets/pantallas/Comarcas_pantalla.dart';
 import '/utils/Comarques.dart';
 import 'dart:convert'; // Para  realizar conversiones entre tipos
 import 'package:http/http.dart' as http; // Para reañozar ètocopmes HTTP
@@ -19,7 +20,7 @@ class _provincia_pantallaState extends State<provincia_pantalla> {
     return SafeArea(
         child: Scaffold(
           appBar: AppBar(
-            title: const Text("Comarcas de la Comunitat",
+            title: const Text("Provincias de la Comunitat",
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -30,8 +31,7 @@ class _provincia_pantallaState extends State<provincia_pantalla> {
             centerTitle: true,
             backgroundColor: Colors.white,
           ),
-          body: SingleChildScrollView(
-            child: Container(
+          body: Container(
               height: MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top,
                 decoration: const BoxDecoration(
                   image: DecorationImage(
@@ -44,12 +44,12 @@ class _provincia_pantallaState extends State<provincia_pantalla> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(padding: const EdgeInsets.only(top: 30),
+                    Padding(padding: const EdgeInsets.only(bottom: 30),
                         child: GestureDetector(
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const MyHomePage(title: "Nuevo")),
+                              MaterialPageRoute(builder: (context) => const comarcas_pantalla()),
                             );
                           },
                           child: Stack(
@@ -57,7 +57,7 @@ class _provincia_pantallaState extends State<provincia_pantalla> {
                             children: <Widget>[
                               CircleAvatar(
                                 radius: 100,
-                                backgroundImage: llamarImagen(provincies["provincies"][0]["img"]),
+                                backgroundImage: Image.network(provincies["provincies"][0]["img"]).image,
                                 //backgroundImage: AssetImage(provincies["provincies"][0]["img"]),
                               ),
                               Text(
@@ -73,20 +73,20 @@ class _provincia_pantallaState extends State<provincia_pantalla> {
                           )
                         )
                     ),
-                    Padding(padding: const EdgeInsets.only(top: 30),
+                    Padding(padding: const EdgeInsets.only(bottom: 30),
                         child: GestureDetector(
                             onTap: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const MyHomePage(title: "Nuevo")),
+                                MaterialPageRoute(builder: (context) => const comarcas_pantalla()),
                               );
                             },
                             child: Stack(
                                 alignment: Alignment.center,
                                 children: <Widget>[
-                                  const CircleAvatar(
+                                  CircleAvatar(
                                     radius: 100,
-                                    backgroundImage: AssetImage("assets/images/LogoInstituto.png"),
+                                    backgroundImage: Image.network(provincies["provincies"][1]["img"]).image,
                                   ),
                                   Text(
                                     '${provincies["provincies"][1]["provincia"]}',
@@ -101,20 +101,20 @@ class _provincia_pantallaState extends State<provincia_pantalla> {
                             )
                         )
                     ),
-                    Padding(padding: const EdgeInsets.only(top: 30),
+                    Padding(padding: const EdgeInsets.only(bottom: 30),
                         child: GestureDetector(
                             onTap: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const MyHomePage(title: "Nuevo")),
+                                MaterialPageRoute(builder: (context) => const comarcas_pantalla()),
                               );
                             },
                             child: Stack(
                                 alignment: Alignment.center,
                                 children: <Widget>[
-                                  const CircleAvatar(
+                                  CircleAvatar(
                                     radius: 100,
-                                    backgroundImage: AssetImage("assets/images/LogoInstituto.png"),
+                                    backgroundImage: Image.network(provincies["provincies"][2]["img"]).image,
                                   ),
                                   Text(
                                     '${provincies["provincies"][2]["provincia"]}',
@@ -133,7 +133,7 @@ class _provincia_pantallaState extends State<provincia_pantalla> {
                 ),
               )
             )
-          ),
+
         ),
     );
   }
