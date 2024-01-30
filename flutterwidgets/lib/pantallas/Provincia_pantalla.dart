@@ -56,7 +56,7 @@ class _provincia_pantallaState extends State<provincia_pantalla> {
                             children: <Widget>[
                               CircleAvatar(
                                 radius: 100,
-                                backgroundImage: Image.network(provincies["provincies"][0]["img"]).image,
+                                backgroundImage: Image.network("https://twomonkeystravelgroup.com/wp-content/uploads/2020/01/15-Best-Things-To-Do-in-Valencia-Spain1.jpg").image,
                                 //backgroundImage: AssetImage(provincies["provincies"][0]["img"]),
                               ),
                               Text(

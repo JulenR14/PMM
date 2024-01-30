@@ -22,17 +22,29 @@ class _comarcasInfo_pantallaState extends State<comarcasInformacion_view>{
              fit: BoxFit.fill,
            ),
          ),
-         Padding(padding: EdgeInsets.only(top: 30),
+         Padding(padding: const EdgeInsets.only(top: 30),
            child: Text('${widget.comarca["comarca"]}',
            textAlign: TextAlign.left,
            style: const TextStyle(
              fontSize: 35,
              color: Colors.blueGrey,
-
              ),
            )
+         ),
+         Padding(padding: const EdgeInsets.only(top: 10),
+             child: Text('Capital: ${widget.comarca["capital"]}',
+               textAlign: TextAlign.left,
+               style: const TextStyle(
+                 fontSize: 20,
+                 color: Colors.black,
+               ),
+             )
+         ),
+         Padding(padding: const EdgeInsets.only(top: 15, left: 20, right: 20),
+         child: Text('${widget.comarca["desc"]}',
+           textAlign: TextAlign.justify,
+           )
          )
-
        ],
      );
   }
