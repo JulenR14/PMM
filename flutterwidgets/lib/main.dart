@@ -1,16 +1,20 @@
+// Importando los paquetes necesarios
 import 'package:flutter/material.dart';
 import 'package:flutterwidgets/pantallas/Provincia_pantalla.dart';
 
+// Función principal de la aplicación
 void main() {
   runApp(const MyApp());
 }
 
+// Clase MyApp que es un widget sin estado
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  // Este widget es la raíz de tu aplicación.
   @override
   Widget build(BuildContext context) {
+    // MaterialApp es el widget de nivel superior que proporciona el tema a la aplicación
     return MaterialApp(
       title: 'Comarcas de la Comunitat',
       debugShowCheckedModeBanner: false,
@@ -19,11 +23,11 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Comarcas de la Comunitat'),
-      //home: const provincia_pantalla(),
     );
   }
 }
 
+// Clase MyHomePage que es un widget con estado
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
   final String title;
@@ -32,11 +36,12 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+// Clase _MyHomePageState que es el estado de MyHomePage
 class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    //para que la app no este por debajo de la barra de estado
+    // El widget SafeArea se utiliza para asegurarse de que la aplicación no esté debajo de la barra de estado
     return SafeArea(
             child: Scaffold(
               body: SingleChildScrollView(
@@ -51,7 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     child: Center(
                         child: Column(
-                          //alineamos el contenido en el centro
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image.asset("assets/images/LogoInstituto.png",
@@ -67,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   textAlign: TextAlign.center,
                                 )
                             ),
-
+                            // Campo de entrada del usuario
                             const Padding(padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                               child: TextField(
                                 decoration: InputDecoration(
@@ -79,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               ),
                             ),
                             const SizedBox(width: 30),
+                            // Campo de entrada de la contraseña
                             const Padding(padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                                 child: TextField(
                                   obscureText: true,
@@ -95,6 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
+                                      // Botón de inicio de sesión
                                       Padding(padding: const EdgeInsets.symmetric(horizontal: 10),
                                           child: FilledButton.tonal(
                                               style: ButtonStyle(
@@ -112,6 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                   )
                                               )
                                           )),
+                                      // Botón de registro
                                       Padding(padding: const EdgeInsets.symmetric(horizontal: 10),
                                           child: FilledButton.tonal(
                                               style: ButtonStyle(
@@ -180,7 +187,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                 )
                             )
                           ],
-                          //añadimos los widgets hijos con el texto y el contador
                         )
                     )
                     ,
