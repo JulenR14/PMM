@@ -117,7 +117,57 @@ class _MyHomePageState extends State<MyHomePage> {
                                               style: ButtonStyle(
                                                 backgroundColor: MaterialStateProperty.all(Colors.blueGrey),
                                               ),
-                                              onPressed: null,
+                                              onPressed: (){
+                                                showDialog(
+                                                  context: context,
+                                                  builder: (BuildContext context) {
+                                                    return Dialog(
+                                                      child: Container(
+                                                        height: 375,
+                                                        child: AlertDialog(
+                                                          title:const  Text('Registro'),
+                                                          content: const Column(
+                                                            children: <Widget>[
+                                                              TextField(
+                                                                decoration: InputDecoration(
+                                                                  hintText: 'Usuario',
+                                                                ),
+                                                              ),
+                                                              TextField(
+                                                                decoration: InputDecoration(
+                                                                  hintText: 'Contraseña',
+                                                                ),
+                                                                obscureText: true,
+                                                              ),
+                                                              TextField(
+                                                                decoration: InputDecoration(
+                                                                  hintText: 'Confirmar Contraseña',
+                                                                ),
+                                                                obscureText: true,
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          actions: <Widget>[
+                                                            TextButton(
+                                                              child: Text('Cancelar'),
+                                                              onPressed: () {
+                                                                Navigator.of(context).pop();
+                                                              },
+                                                            ),
+                                                            TextButton(
+                                                              child: Text('Registrar'),
+                                                              onPressed: () {
+                                                                // Aquí puedes poner la lógica para registrar al usuario
+                                                                Navigator.of(context).pop();
+                                                              },
+                                                            ),
+                                                          ],
+                                                        )
+                                                    )
+                                                    );
+                                                  },
+                                                );
+                                              },
                                               child: const Text("Sign up",
                                                 style: TextStyle(
                                                     color: Colors.white

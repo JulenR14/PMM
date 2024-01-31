@@ -49,7 +49,7 @@ class _provincia_pantallaState extends State<comarcasInfo_pantalla>{
           BottomNavigationBarItem(
             icon: Icon(Icons.wb_sunny_outlined),
             activeIcon: Icon(Icons.wb_sunny),
-            label: 'Info',
+            label: 'Tiempo',
             backgroundColor: Colors.blueAccent,
           )
         ],
